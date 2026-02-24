@@ -5,3 +5,7 @@
 .cardwithbody {
   width: 10rem;
 }
+
+.displaynavbar {
+  display: inline-flex;
+}

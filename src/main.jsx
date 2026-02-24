@@ -6,6 +6,7 @@ import App from './App.jsx';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './assets/aboutus.css';
 import './assets/index.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
