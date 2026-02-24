@@ -18,7 +18,10 @@ export default function Header({ query, setQuery, handleSearch }) {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="form-inline displaynavbar ms-auto mx-4 my-2 my-lg-0 d-flex gap-2">
+          <form
+            onSubmit={handleSearch}
+            className="form-inline displaynavbar ms-auto mx-4 my-2 my-lg-0 d-flex gap-2"
+          >
             <input
               className="form-control mx-sm-2"
               value={query}

@@ -38,7 +38,7 @@ export default function DefaultLayout() {
       ></Header>
       <main>
         <div className="mt-3 container">
-          <Outlet context={movies}></Outlet>
+          <Outlet context={{ movies }}></Outlet>
         </div>
       </main>
     </>
