@@ -24,6 +24,7 @@
 
   opacity: 0;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
 }
 
 .media-card:hover .media-overlay {
