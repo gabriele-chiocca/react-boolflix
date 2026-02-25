@@ -7,11 +7,14 @@ export default function DefaultLayout() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
 
     if (!query.trim()) return;
+
+    setHasSearched(true);
 
     axios
       .get('https://api.themoviedb.org/3/search/movie', {
@@ -53,9 +56,9 @@ export default function DefaultLayout() {
         setQuery={setQuery}
         handleSearch={handleSearch}
       ></Header>
-      <main>
+      <main className="bg-black min-vh-100">
         <div className="mt-3 container">
-          <Outlet context={{ movies, series }}></Outlet>
+          <Outlet context={{ movies, series, hasSearched }}></Outlet>
         </div>
       </main>
     </>

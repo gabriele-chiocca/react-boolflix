@@ -8,6 +8,8 @@ export default function MediaCard({ item, isTv }) {
     ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
     : null;
 
+  const flag = getFlagUrl(item.original_language);
+
   const stars = Math.max(1, Math.ceil(item.vote_average / 2));
   const fullStars = '★'.repeat(stars);
   const emptyStars = '☆'.repeat(5 - stars);
@@ -17,8 +19,8 @@ export default function MediaCard({ item, isTv }) {
       {posterUrl ? (
         <img src={posterUrl} alt={title} className="img-fluid card-img-top" />
       ) : (
-        <div>
-          <span>Non ha copertina</span>
+        <div className="text-center">
+          <span className="media-no-poster text-center">Non ha copertina</span>
         </div>
       )}
 
@@ -29,6 +31,16 @@ export default function MediaCard({ item, isTv }) {
         <div>
           <span>
             <strong>Titolo originale:</strong> {titleOriginal}
+          </span>
+        </div>
+        <div>
+          <span>
+            Lingua:
+            {flag ? (
+              <img src={flag} alt={item.original_title} />
+            ) : (
+              <span>{item.original_language}</span>
+            )}
           </span>
         </div>
         <div>
