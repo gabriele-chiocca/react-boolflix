@@ -1,5 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 import { getFlagUrl } from '../function/flag';
+import MediaCard from '../components/MediaCard';
 
 export default function HomePage() {
   const { movies, series } = useOutletContext();
@@ -28,10 +29,10 @@ export default function HomePage() {
                   </div>
                 )}
                 <div>
-                  <span>Titolo:{movie.title}</span>
+                  <span>Titolo: {movie.title}</span>
                 </div>
                 <div>
-                  <span>Titolo originale:{movie.original_title}</span>
+                  <span>Titolo originale: {movie.original_title}</span>
                 </div>
                 <div>
                   <span>
@@ -77,10 +78,10 @@ export default function HomePage() {
                   </div>
                 )}
                 <div>
-                  <span>Titolo:{serie.name}</span>
+                  <span>Titolo: {serie.name}</span>
                 </div>
                 <div>
-                  <span>Titolo originale:{serie.original_name}</span>
+                  <span>Titolo originale: {serie.original_name}</span>
                 </div>
                 <div>
                   <span>

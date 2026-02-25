@@ -9,3 +9,23 @@
 .displaynavbar {
   display: inline-flex;
 }
+
+.media-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.media-card:hover .media-overlay {
+  opacity: 1;
+}
