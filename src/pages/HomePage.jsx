@@ -13,6 +13,11 @@ export default function HomePage() {
             const posterUrl = movie.poster_path
               ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
               : null;
+
+            const stars = Math.ceil(movie.vote_average / 2);
+            const fullStars = '★'.repeat(stars);
+            const emptyStars = '☆'.repeat(5 - stars);
+
             return (
               <li key={movie.id}>
                 {posterUrl ? (
@@ -39,7 +44,10 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div>
-                  <span>Voto:{movie.vote_average}</span>
+                  <span>
+                    Voto: {fullStars}
+                    {emptyStars}
+                  </span>
                 </div>
               </li>
             );
@@ -55,10 +63,14 @@ export default function HomePage() {
             const seriesUrl = serie.poster_path
               ? `https://image.tmdb.org/t/p/w342${serie.poster_path}`
               : null;
+
+            const stars = Math.ceil(serie.vote_average / 2);
+            const fullStars = '★'.repeat(stars);
+            const emptyStars = '☆'.repeat(5 - stars);
             return (
               <li key={serie.id}>
                 {seriesUrl ? (
-                  <img src={seriesUrl} alt={series.name} />
+                  <img src={seriesUrl} alt={serie.name} />
                 ) : (
                   <div>
                     <span>Non vi è il poster</span>
@@ -81,7 +93,10 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div>
-                  <span>Voto:{serie.vote_average}</span>
+                  <span>
+                    Voto: {fullStars}
+                    {emptyStars}{' '}
+                  </span>
                 </div>
               </li>
             );
