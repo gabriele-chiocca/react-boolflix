@@ -10,8 +10,18 @@ export default function HomePage() {
         <ul>
           {movies.map((movie) => {
             const flag = getFlagUrl(movie.original_language);
+            const posterUrl = movie.poster_path
+              ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
+              : null;
             return (
               <li key={movie.id}>
+                {posterUrl ? (
+                  <img src={posterUrl} alt={movie.title}></img>
+                ) : (
+                  <div>
+                    <span>No poster</span>
+                  </div>
+                )}
                 <div>
                   <span>Titolo:{movie.title}</span>
                 </div>
@@ -42,19 +52,29 @@ export default function HomePage() {
         <ul>
           {series.map((serie) => {
             const flag = getFlagUrl(serie.original_language);
+            const seriesUrl = serie.poster_path
+              ? `https://image.tmdb.org/t/p/w342${serie.poster_path}`
+              : null;
             return (
               <li key={serie.id}>
+                {seriesUrl ? (
+                  <img src={seriesUrl} alt={series.name} />
+                ) : (
+                  <div>
+                    <span>Non vi è il poster</span>
+                  </div>
+                )}
                 <div>
                   <span>Titolo:{serie.name}</span>
                 </div>
                 <div>
-                  <span>Titolo originale:{serie.origina_name}</span>
+                  <span>Titolo originale:{serie.original_name}</span>
                 </div>
                 <div>
                   <span>
                     Lingua:
                     {flag ? (
-                      <img src={flag} alt={serie.original_title} />
+                      <img src={flag} alt={serie.original_name} />
                     ) : (
                       <span>{serie.original_language}</span>
                     )}
